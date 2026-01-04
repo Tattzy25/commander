@@ -11,6 +11,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ResultsClient } from "../results.client";
+import { UploadedImagesProvider } from "../uploaded-images-provider";
 import { StylesTab } from "../Styles/StylesTab";
 import { ColorsTab } from "../Colors/ColorsTab";
 import { PlacementsTab } from "../Placements/PlacementsTab";
@@ -65,20 +67,20 @@ function CommandDialog({
             <TabsTrigger value="aspect-ratio">Aspect Ratio</TabsTrigger>
             <TabsTrigger value="tatty-magic">TaTTTy Magic</TabsTrigger>
           </TabsList>
-          <TabsContent className="flex-1" value="styles">
-            <StylesTab className="flex h-32 items-center justify-center text-4xl" />
+          <TabsContent className="flex-1 h-[500px]" value="styles">
+            <StylesTab className="h-full" />
           </TabsContent>
-          <TabsContent className="flex-1" value="colors">
-            <ColorsTab className="flex h-32 items-center justify-center text-4xl" />
+          <TabsContent className="flex-1 h-[500px]" value="colors">
+            <ColorsTab className="h-full" />
           </TabsContent>
-          <TabsContent className="flex-1" value="placements">
-            <PlacementsTab className="flex h-32 items-center justify-center text-4xl" />
+          <TabsContent className="flex-1 h-[500px]" value="placements">
+            <PlacementsTab className="h-full" />
           </TabsContent>
-          <TabsContent className="flex-1" value="aspect-ratio">
-            <AspectRatioTab className="flex h-32 items-center justify-center text-4xl" />
+          <TabsContent className="flex-1 h-[500px]" value="aspect-ratio">
+            <AspectRatioTab className="h-full" />
           </TabsContent>
-          <TabsContent className="flex-1" value="tatty-magic">
-            <TattyMagicTab className="flex h-32 items-center justify-center text-4xl" />
+          <TabsContent className="flex-1 h-[500px]" value="tatty-magic">
+            <TattyMagicTab className="h-full" />
           </TabsContent>
         </Tabs>
       </DialogContent>

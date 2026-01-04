@@ -37,7 +37,7 @@ export function Commando() {
       >
         GET Ink"D <Kbd>⌘K</Kbd>
       </Button>
-      <CommandDialog onOpenChange={setOpen} open={open} />
+      <CommandDialog onOpenChange={setOpen} open={open} className="h-[600px] w-[600px]" />
     </>
   );
 }
