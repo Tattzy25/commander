@@ -1,47 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import {
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command";
+import { CommandDialog } from "@/components/ui/command";
+import { Kbd } from "@/components/ui/kbd";
 
 export function Commando() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Check for Ctrl+K (Windows) or ⌘K (Mac)
+      if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+        event.preventDefault();
+        setOpen(true);
+      }
+
+      // Close dialog on Escape
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <>
       <Button
-        className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        className="-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2"
         onClick={() => setOpen(true)}
         size="default"
         variant="default"
       >
-        GET Ink"D
+        GET Ink"D <Kbd>⌘K</Kbd>
       </Button>
-      <CommandDialog onOpenChange={setOpen} open={open}>
-        <CommandInput placeholder="Type a command or search..." />
-        <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            <CommandItem>
-              <span>Command 1</span>
-            </CommandItem>
-            <CommandItem>
-              <span>Command 2</span>
-            </CommandItem>
-            <CommandItem>
-              <span>Command 3</span>
-            </CommandItem>
-          </CommandGroup>
-        </CommandList>
-      </CommandDialog>
+      <CommandDialog onOpenChange={setOpen} open={open} />
     </>
   );
 }

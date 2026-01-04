@@ -123,11 +123,9 @@ export const ResultsClient = ({ defaultData }: ResultsClientProps) => {
           <Button className="shrink-0" disabled size="icon" variant="ghost">
             <Loader2Icon className="size-4 animate-spin" />
           </Button>
-        ) : (
-          // Upload functionality is hidden - see CustomUpload component
-          // <CustomUpload />
-          null
-        )}
+        ) : // Upload functionality is hidden - see CustomUpload component
+        // <CustomUpload />
+        null}
       </form>
     </>
   );

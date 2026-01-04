@@ -10,6 +10,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { StylesTab } from "../Styles/StylesTab";
+import { ColorsTab } from "../Colors/ColorsTab";
+import { PlacementsTab } from "../Placements/PlacementsTab";
+import { AspectRatioTab } from "../Aspect Ratio/AspectRatioTab";
+import { TattyMagicTab } from "../TaTTTy Magic/TattyMagicTab";
 import { cn } from "@/lib/utils";
 
 function Command({
@@ -51,9 +57,30 @@ function CommandDialog({
         className={cn("overflow-hidden p-0", className)}
         showCloseButton={showCloseButton}
       >
-        <Command className="**:data-[slot=command-input-wrapper]:h-12 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:h-5 [&_[cmdk-item]_svg]:w-5">
-          {children}
-        </Command>
+        <Tabs className="flex flex-col" defaultValue="styles">
+          <TabsList className="self-center">
+            <TabsTrigger value="styles">Styles</TabsTrigger>
+            <TabsTrigger value="colors">Colors</TabsTrigger>
+            <TabsTrigger value="placements">Placements</TabsTrigger>
+            <TabsTrigger value="aspect-ratio">Aspect Ratio</TabsTrigger>
+            <TabsTrigger value="tatty-magic">TaTTTy Magic</TabsTrigger>
+          </TabsList>
+          <TabsContent className="flex-1" value="styles">
+            <StylesTab className="flex h-32 items-center justify-center text-4xl" />
+          </TabsContent>
+          <TabsContent className="flex-1" value="colors">
+            <ColorsTab className="flex h-32 items-center justify-center text-4xl" />
+          </TabsContent>
+          <TabsContent className="flex-1" value="placements">
+            <PlacementsTab className="flex h-32 items-center justify-center text-4xl" />
+          </TabsContent>
+          <TabsContent className="flex-1" value="aspect-ratio">
+            <AspectRatioTab className="flex h-32 items-center justify-center text-4xl" />
+          </TabsContent>
+          <TabsContent className="flex-1" value="tatty-magic">
+            <TattyMagicTab className="flex h-32 items-center justify-center text-4xl" />
+          </TabsContent>
+        </Tabs>
       </DialogContent>
     </Dialog>
   );

@@ -10,9 +10,15 @@ export const metadata: Metadata = {
 
 const ImagesSkeleton = () => {
   const skeletonIds = [
-    "square-1", "video-1", "portrait-1",
-    "square-2", "video-2", "portrait-2",
-    "square-3", "video-3", "portrait-3"
+    "square-1",
+    "video-1",
+    "portrait-1",
+    "square-2",
+    "video-2",
+    "portrait-2",
+    "square-3",
+    "video-3",
+    "portrait-3",
   ];
 
   return (
